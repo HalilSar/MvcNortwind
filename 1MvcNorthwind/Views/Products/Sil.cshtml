@@ -1,0 +1,56 @@
+﻿@model _1MvcNorthwind.Models.Views.ProductsModel
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => Model.SecProducts.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.SecProducts.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.SecProducts.QuantityPerUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.SecProducts.QuantityPerUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.SecProducts.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.SecProducts.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => Model.SecProducts.Discontinued)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.SecProducts.Discontinued)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

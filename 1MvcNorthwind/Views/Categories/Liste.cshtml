@@ -1,0 +1,46 @@
+﻿@model ICollection<_1MvcNorthwind.Models.Data.Categories>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+<form method="post" action="Liste" name="ad">
+<label>Arama</label>
+<input type="text" name="ad" />
+ <input type="submit" value="Ara" class="btn btn-warning" />
+
+       </form>
+<form method="get">
+    <input type="submit" value="Yeni Giriş" formaction="/Categories/Ekle" />
+</form>
+
+
+
+<table class ="table table-bordered;  table-success  table-dark ">
+    <tr>
+        
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Açıklama</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </th>
+    @foreach (var item in Model)/*Modelde talo var item clistin her bir satırı */
+    {
+    <tr>
+        <td>@item.CategoryID</td>
+        <td>@item.CategoryName</td>
+        <td>@item.Description</td>
+        <td><a href="/Categories/Detay/@item.CategoryID">Detay</a></td>
+        <td><a href="/Categories/Sil/@item.CategoryID">Sil</a></td>
+        <td><a href="/Categories/Guncel/@item.CategoryID">Güncelle</a></td>
+
+
+    </tr>
+
+    }
+
+</table>

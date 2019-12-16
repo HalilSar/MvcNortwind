@@ -1,0 +1,35 @@
+﻿@model  _1MvcNorthwind.Models.Views.ProductsModel
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2>Ürün Listesi</h2>
+<table class="table table-bordered table-hover table-dark">
+    <tr>
+        <th>Id</th>
+        <th>Kategori</th>
+        <th>Tedarikçi</th>
+        <th>Ad</th>
+        <th>Paket</th>
+        <th>Birim</th>
+    </tr>
+  
+       @foreach (var item in Model.plist)
+       {
+    <tr>
+        <td>@item.ProductID</td>
+        <td>@item.Categories.CategoryName</td>
+        <td>@item.Suppliers.CompanyName</td>
+        <td>@item.ProductName</td>
+        <td>@item.QuantityPerUnit</td>
+        <td>@item.UnitPrice</td>
+        <td><a href="/Products/Detay/@item.ProductID"><i class="fa fa-camera"></i></a></td>
+        <td><a href="/Products/Sil/@item.ProductID"><i class="far fa-trash-alt"></i></a></td>
+        <td><a href="/Products/Guncel/@item.ProductID"><i class="far fa-edit"></i></a></td>
+
+    </tr>
+       }
+   
+</table>
+
+
